@@ -1,0 +1,40 @@
+<html xmlns:concordion="http://www.concordion.org/2007/concordion">
+
+    <head>
+        <link href="../../concordion.css" rel="stylesheet" type="text/css" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    </head>
+
+    <body>
+
+        <h1>Verify WebSite Login</h1>
+
+        <p>
+            Once the customer is registered to the Bank, the Bank creates the user online account.
+            Therefore, the user should be able to perform login to the website and check if account is activated.
+        </p>
+
+        <p>
+            The system therefore attempts to login with the valid user credentials.
+        </p>
+
+        <div concordion:example="Login To Bank">
+
+            <h3>Example</h3>
+
+            <p>
+                The Customer's Bank User Id <span concordion:set="#userName" class="boldstyle">admin</span> 
+                will be entered in User Name field
+                And the secret password <span concordion:set="#password" class="boldstyle">admin123</span> 
+                will be typed into password field.                           	                                                  
+            </p>
+            <p>
+            	With the provided credentials, user submits <span concordion:execute="#result = webPageLogin(#userName,#password)">login</span>
+                and the result will be <span concordion:assertEquals="#result.status">Success</span>
+            </p>
+            <p>
+            	And the welcome page will show as <span concordion:assertEquals="#result.welcomeMessage">Welcome Admin</span>
+            </p>
+        </div>
+    </body>
+</html>

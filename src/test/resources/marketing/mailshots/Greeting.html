@@ -1,0 +1,37 @@
+<html xmlns:concordion="http://www.concordion.org/2007/concordion">
+
+    <head>
+        <link href="../../concordion.css" rel="stylesheet" type="text/css" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    </head>
+
+    <body>
+
+        <h1>Greetings Kudos</h1>
+
+        <p>
+            The newley joined Customer has to be greeted in well manner. 
+        </p>
+
+        <p>
+            The system therefore attempts to greet the new Customer.
+        </p>
+
+        <div concordion:example="greeting">
+
+            <h3>Example</h3>
+
+            <p>
+                The newly joined Customer is <span concordion:set="#name">Jane Smith</span>
+                , he will be <span concordion:execute="#result = greet(#name)">greeted</span>
+                as <span concordion:assertEquals="#result">Hello Jane Smith!</span>               
+            </p>
+            <p>
+                The newly joined Customer is <span concordion:set="#name">Jane Smith</span>
+                , he will be <span concordion:execute="#result = wellcome(#name)">welcome'd</span>
+                as <span concordion:assertEquals="#result">Wellcome Jane Smith!</span>               
+            </p>
+
+        </div>
+    </body>
+</html>
